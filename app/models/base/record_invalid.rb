@@ -1,0 +1,2 @@
+class RecordInvalid < StandardError
+end

@@ -1,0 +1,35 @@
+<form action="/humans/<%= @human.id %>" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH">
+
+  <label>First Name
+    <input type="text" name="human[fname]" value="<%= @human.fname %>">
+  </label>
+
+  <label>Last Name
+    <input type="text" name="human[lname]" value="<%= @human.lname %>">
+  </label>
+
+  <label>Address</label>
+  <select name="human[house_id]">
+    <% House.all.each do |house| %>
+      <option value="<%= house.id%>"><%= house.address %></option>
+    <% end %>
+  </select>
+
+  <input type="submit">
+</form>
+
+<a href="/humans"><< Back to Index</a>
+
+<ul>
+  <% if session[:errors] %>
+    <% session[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  <% end %>
+</ul>
+
+<div style="background-color: #c8c8c8; border-radius: 8px; border: 6px solid #00d2da; box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75); width: 30%; padding: 10px; position: absolute; top: 20px; right: 20px;">
+  Lite Rail employs strong params, allowing certain attributes to be "whitelisted" for mass assignment.
+</div>

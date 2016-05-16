@@ -1,0 +1,25 @@
+<h1>All Houses</h1>
+
+<ul>
+  <% @houses.each do |house| %>
+    <li>
+      <%= house.address %>
+      <ul>
+      <% house.inhabitants.each do |inhabitant| %>
+        <li><a href="/humans/<%= inhabitant.id %>">
+          <%= "#{inhabitant.fname} #{inhabitant.lname}" %>
+        </a></li>
+      <% end %>
+      </ul>
+    </li>
+    <%= button_to "Delete", "/houses/#{house.id}", method: :delete %>
+    <%= link_to "Edit", "/houses/#{house.id}/edit" %>
+  <% end %>
+</ul>
+
+<a href="/houses/new">+ Add House</a><br>
+<a href="/humans">>> All Humans</a>
+
+<div style="background-color: #c8c8c8; border-radius: 8px; border: 6px solid #00d2da; box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75); width: 30%; padding: 10px; position: absolute; top: 20px; right: 20px;">
+  Welcome to Lite Rail! This toy app will demo the types of functionality possible with Lite Rail.
+</div>

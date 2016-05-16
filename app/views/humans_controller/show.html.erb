@@ -1,0 +1,21 @@
+<h1><%= @human.fname%>'s page</h1>
+
+<p>
+  Address: <%= @human.house.address %>
+</p>
+<p>
+  Cats:
+</p>
+<ul>
+  <% @human.cats.each do |cat| %>
+    <li><a href="/cats<%= cat.id%>">
+      <%= cat.name %>
+    </a></li>
+  <% end %>
+</ul>
+
+<%= link_to "<< Back to Index", "/humans" %>
+
+<div style="background-color: #c8c8c8; border-radius: 8px; border: 6px solid #00d2da; box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75); width: 30%; padding: 10px; position: absolute; top: 20px; right: 20px;">
+  Lite Rail implements a Relation class that allows lazy querying. That is, a user can build a query over multiple method calls, and the database will not be hit until it needs to be.
+</div>

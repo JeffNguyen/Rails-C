@@ -1,0 +1,17 @@
+<h1>All Cats</h1>
+<ul>
+<% @cats.each do |cat| %>
+  <li><a href="/cats/<%= cat.id %>"><%= cat.name %></a></li>
+  <%= link_to "Edit", "/cats/#{cat.id}/edit" %>
+  <%= button_to "Delete",
+                "/cats/#{cat.id}",
+                method: :delete %>
+<% end %>
+</ul>
+
+<a href="/cats/new">+ New cat</a></br>
+<a href="/humans"><< Back to Humans</a>
+
+<div style="background-color: #c8c8c8; border-radius: 8px; border: 6px solid #00d2da; box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75); width: 30%; padding: 10px; position: absolute; top: 20px; right: 20px;">
+  Lite Rail defines helper methods designed to make writing HTML templates easier. For example, in this template "link_to" and "button_to" are both used to easily create links and buttons.
+</div>

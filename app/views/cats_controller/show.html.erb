@@ -1,0 +1,15 @@
+<h1>Here is <%= @cat.name %></h1>
+
+<p>
+  <% owner = @cat.owner %>
+  Owner: <%= "#{owner.fname} #{owner.lname}" %>
+</p>
+<p>
+  Address: <%= @cat.house.address %>
+</p>
+
+<%= link_to "<< Back to Cats", "/cats" %>
+
+<div style="background-color: #c8c8c8; border-radius: 8px; border: 6px solid #00d2da; box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75); width: 30%; padding: 10px; position: absolute; top: 20px; right: 20px;">
+  The ORM that Lite Rails implements can accomodate asssociations of arbitrary length. Here, the address is fetched via a belongs-to-through association, which implements multiple SQL joins to gather the appropriate data.
+</div>

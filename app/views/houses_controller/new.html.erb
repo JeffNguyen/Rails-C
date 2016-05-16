@@ -1,0 +1,23 @@
+<form action="/houses" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label>Address
+    <input type="text" name="house[address]" value="<%= @house.address %>">
+  </label>
+
+  <input type="submit">
+</form>
+
+<a href="/houses"><< Back to Index</a>
+
+<ul>
+  <% if session[:errors] %>
+    <% session[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  <% end %>
+</ul>
+
+<div style="background-color: #c8c8c8; border-radius: 8px; border: 6px solid #00d2da; box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75); width: 30%; padding: 10px; position: absolute; top: 20px; right: 20px;">
+  Try submitting without typing in an address - it won't work. Lite Rail allows custom validations and includes some pre-defined validation, such as the presence of a particular field.
+</div>

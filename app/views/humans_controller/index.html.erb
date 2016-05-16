@@ -1,0 +1,27 @@
+<h1>All Humans</h1>
+
+<ul>
+<% @humans.each do |human| %>
+  <li>
+    <a href="/humans/<%= human.id %>">
+    <%= "#{human.fname} #{human.lname}"%>
+    </a>
+    <br>Cats:
+    <ul>
+      <% human.cats.each do |cat| %>
+        <li><a href="/cats/<%= cat.id %>"><%= cat.name %></a></li>
+      <% end %>
+    </ul>
+  </li>
+  <%= button_to "Delete", "humans/#{human.id}", method: :delete %>
+  <%= link_to "Edit", "humans/#{human.id}/edit" %>
+<% end %>
+</ul>
+
+<%= link_to "+ New Human", "/humans/new" %><br>
+<%= link_to "<< Back to Houses", "/houses" %><br>
+<%= link_to ">> All Cats", "/cats" %>
+
+<div style="background-color: #c8c8c8; border-radius: 8px; border: 6px solid #00d2da; box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75); width: 30%; padding: 10px; position: absolute; top: 20px; right: 20px;">
+  The ORM that Lite Rail employs allows prefetching. When all of the users are fetched, the data pertaining to their cats is also fetched and cached for later use. This way, a page like this can avoid N+1 queries.
+</div>

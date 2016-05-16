@@ -1,0 +1,2 @@
+class LiteRail
+end
